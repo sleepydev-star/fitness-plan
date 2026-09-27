@@ -26,13 +26,11 @@
       line-height: 1.5;
     }
 
-    /* 主容器 */
     .dashboard {
       max-width: 1300px;
       margin: 0 auto;
     }
 
-    /* 标题区 */
     .header {
       display: flex;
       flex-wrap: wrap;
@@ -104,7 +102,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* 网格系统 */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -157,7 +154,6 @@
       filter: drop-shadow(0 0 8px #00b8ff);
     }
 
-    /* 训练表格 */
     .schedule-table {
       width: 100%;
       border-collapse: collapse;
@@ -209,28 +205,6 @@
       color: #5fffc2;
     }
 
-    /* 动作列表 */
-    .exercise-list {
-      list-style: none;
-      margin-top: 0.25rem;
-    }
-
-    .exercise-list li {
-      font-size: 0.9rem;
-      padding: 0.25rem 0 0.25rem 1.2rem;
-      position: relative;
-      color: #cbd5e8;
-    }
-
-    .exercise-list li::before {
-      content: '▹';
-      position: absolute;
-      left: 0;
-      color: #00e0ff;
-      text-shadow: 0 0 6px #00e0ff;
-    }
-
-    /* 数据网格 */
     .macro-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -285,7 +259,6 @@
       margin-right: 0.2rem;
     }
 
-    /* 补剂区块 */
     .supp-stack {
       display: flex;
       flex-direction: column;
@@ -325,7 +298,6 @@
       font-size: 0.8rem;
     }
 
-    /* 强调数字 */
     .highlight {
       color: #a0f0ff;
       font-weight: 700;
@@ -348,7 +320,6 @@
       filter: drop-shadow(0 0 5px cyan);
     }
 
-    /* 进度条效果 */
     .pulse-line {
       height: 2px;
       background: linear-gradient(90deg, transparent, #00f0ff, #b180ff, transparent);
@@ -363,7 +334,62 @@
       100% { opacity: 0.2; }
     }
 
-    /* 响应式 */
+    /* 打卡功能样式 */
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.4rem 0;
+      font-size: 0.9rem;
+      color: #cbd5e8;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+    .check-item input[type="checkbox"] {
+      appearance: none;
+      width: 1.1rem;
+      height: 1.1rem;
+      border: 2px solid #00e0ff;
+      border-radius: 4px;
+      background: rgba(0, 255, 255, 0.05);
+      cursor: pointer;
+      position: relative;
+      transition: 0.1s;
+      flex-shrink: 0;
+    }
+    .check-item input[type="checkbox"]:checked {
+      background: #00e0ff;
+      box-shadow: 0 0 12px #00e0ff;
+    }
+    .check-item input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      color: #0b0f17;
+      font-size: 0.9rem;
+      font-weight: 700;
+      top: -2px;
+      left: 2px;
+    }
+    .check-item input[type="checkbox"]:checked + span {
+      color: #6b809c;
+      text-decoration: line-through;
+    }
+    .reset-btn {
+      background: transparent;
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      color: #8ce4ff;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: 0.2s;
+    }
+    .reset-btn:hover {
+      background: rgba(0, 255, 255, 0.1);
+      border-color: #00e0ff;
+    }
+
     @media (max-width: 600px) {
       body { padding: 0.8rem; }
       .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
@@ -376,10 +402,9 @@
 </head>
 <body>
   <div class="dashboard">
-    <!-- 头部 -->
     <div class="header">
       <div class="title-section">
-        <h1>⚡ 增肌核心协议 // 蚌埠吴彦祖yrz</h1>
+        <h1>⚡ 增肌核心协议 // 19Y</h1>
         <div class="sub">
           <span>足球双训 · 健身房补强</span>
           <span>热量盈余 + 渐进超负荷</span>
@@ -401,9 +426,7 @@
       </div>
     </div>
 
-    <!-- 第一行：训练计划 + 饮食目标 -->
     <div class="grid">
-      <!-- 训练安排卡片 -->
       <div class="card">
         <h2><i>📅</i> 每周训练协议</h2>
         <table class="schedule-table">
@@ -411,77 +434,73 @@
             <td>周一</td>
             <td>
               <span class="badge orange">足球 2h</span>
-              <ul class="exercise-list">
-                <li>训练前 1.5-2h：香蕉 + 面包 + 花生酱</li>
-                <li>训练后 1h 内加餐（牛奶/鸡蛋/正餐）</li>
-              </ul>
+              <label class="check-item"><input type="checkbox" data-day="mon"> <span>完成足球训练</span></label>
+              <label class="check-item"><input type="checkbox" data-day="mon"> <span>训练前加餐（香蕉+面包+花生酱）</span></label>
+              <label class="check-item"><input type="checkbox" data-day="mon"> <span>训练后1h内加餐</span></label>
             </td>
           </tr>
           <tr>
             <td>周二</td>
             <td>
               <span class="badge">推+肩</span>
-              <ul class="exercise-list">
-                <li>夹胸器 4×10-12</li>
-                <li>推肩器 4×10-12</li>
-                <li>俯卧撑 3×力竭前2次</li>
-                <li>平板支撑 3×45-60s</li>
-              </ul>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>夹胸器 4×10-12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>推肩器 4×10-12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>俯卧撑 3×力竭前2次</span></label>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>平板支撑 3×45-60s</span></label>
             </td>
           </tr>
           <tr>
             <td>周三</td>
             <td>
               <span class="badge orange">足球 2h</span>
-              <ul class="exercise-list">
-                <li>同周一，训练前后碳水加量</li>
-              </ul>
+              <label class="check-item"><input type="checkbox" data-day="wed"> <span>完成足球训练</span></label>
+              <label class="check-item"><input type="checkbox" data-day="wed"> <span>训练前加餐</span></label>
+              <label class="check-item"><input type="checkbox" data-day="wed"> <span>训练后1h内加餐</span></label>
             </td>
           </tr>
           <tr>
             <td>周四</td>
             <td>
               <span class="badge">拉+二头</span>
-              <ul class="exercise-list">
-                <li>高位下拉 4×10-12</li>
-                <li>二头弯举器 4×10-12</li>
-                <li>反向飞鸟 3×15</li>
-                <li>卷腹/悬垂举腿 3×15</li>
-              </ul>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>高位下拉 4×10-12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>二头弯举器 4×10-12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>反向飞鸟 3×15</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>卷腹/悬垂举腿 3×15</span></label>
             </td>
           </tr>
           <tr>
             <td>周五</td>
             <td>
               <span class="badge green">主动恢复</span>
-              <ul class="exercise-list">
-                <li>慢跑 20-30min（能说话强度）</li>
-              </ul>
+              <label class="check-item"><input type="checkbox" data-day="fri"> <span>慢跑 20-30min</span></label>
             </td>
           </tr>
           <tr>
             <td>周六</td>
             <td>
               <span class="badge">全身补强</span>
-              <ul class="exercise-list">
-                <li>推肩 3×12 / 高位下拉 3×12</li>
-                <li>夹胸 3×15 / 二头 3×15</li>
-                <li>平板支撑 3×60s</li>
-              </ul>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>推肩 3×12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>高位下拉 3×12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>夹胸 3×15</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>二头 3×15</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>平板支撑 3×60s</span></label>
             </td>
           </tr>
           <tr>
             <td>周日</td>
-            <td><span class="badge green">完全休息</span> 睡够8h</td>
+            <td>
+              <span class="badge green">完全休息</span>
+              <label class="check-item"><input type="checkbox" data-day="sun"> <span>睡够8小时</span></label>
+            </td>
           </tr>
         </table>
+        <button class="reset-btn" id="resetBtn">重置本周打卡</button>
         <div class="note">
           <span class="icon">⚙️</span>
           <span>加重原则：12次有余力则加重，不足8次则减重。组间休息60-90秒。</span>
         </div>
       </div>
 
-      <!-- 饮食宏量卡片 -->
       <div class="card">
         <h2><i>🥩</i> 每日燃料目标</h2>
         <div class="macro-grid">
@@ -522,9 +541,7 @@
       </div>
     </div>
 
-    <!-- 第二行：补剂 + 关键原则 -->
     <div class="grid">
-      <!-- 补剂卡片 -->
       <div class="card">
         <h2><i>🧪</i> 补剂决策 · 肌酸优先</h2>
         <div class="supp-stack">
@@ -557,7 +574,6 @@
         </div>
       </div>
 
-      <!-- 核心原则卡片 -->
       <div class="card">
         <h2><i>📈</i> 执行核心指标</h2>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
@@ -581,7 +597,6 @@
       </div>
     </div>
 
-    <!-- 第三行：一日餐次模板 (全宽) -->
     <div class="card" style="grid-column: 1 / -1;">
       <h2><i>⏱️</i> 一日餐次时间轴 · 食堂/宿舍版</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 0.5rem;">
@@ -616,10 +631,38 @@
       </div>
     </div>
 
-    <!-- 页脚 -->
     <div style="text-align: center; margin-top: 3rem; padding: 1.5rem 0 0.5rem; border-top: 1px solid rgba(0, 255, 255, 0.1); color: #49607b; font-size: 0.8rem; letter-spacing: 1px;">
       <span style="color: #6b8cff;">⚡</span> 科技增肌 · 为19岁足球生定制 · 基于食堂与基础健身房 <span style="color: #6b8cff;">⚡</span>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+
+      checkboxes.forEach((box, index) => {
+        const saved = localStorage.getItem('fitness_check_' + index);
+        if (saved === 'true') {
+          box.checked = true;
+        }
+
+        box.addEventListener('change', function () {
+          localStorage.setItem('fitness_check_' + index, this.checked);
+        });
+      });
+
+      const resetBtn = document.getElementById('resetBtn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function () {
+          if (confirm('确定要清空所有打卡记录吗？')) {
+            checkboxes.forEach((box, index) => {
+              box.checked = false;
+              localStorage.removeItem('fitness_check_' + index);
+            });
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
