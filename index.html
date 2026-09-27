@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>科技增肌 · 19岁足球生定制计划</title>
+  <title>科技增肌 · 三分化定制计划</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       background: #0b0f17;
@@ -26,10 +22,7 @@
       line-height: 1.5;
     }
 
-    .dashboard {
-      max-width: 1300px;
-      margin: 0 auto;
-    }
+    .dashboard { max-width: 1300px; margin: 0 auto; }
 
     .header {
       display: flex;
@@ -83,24 +76,9 @@
       box-shadow: 0 0 25px rgba(0, 150, 255, 0.2);
     }
 
-    .bio-stats .stat {
-      display: flex;
-      align-items: baseline;
-      gap: 0.3rem;
-    }
-
-    .bio-stats .stat .value {
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: #8ce4ff;
-    }
-
-    .bio-stats .stat .label {
-      font-size: 0.8rem;
-      color: #94a9c9;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
+    .bio-stats .stat { display: flex; align-items: baseline; gap: 0.3rem; }
+    .bio-stats .stat .value { font-weight: 700; font-size: 1.3rem; color: #8ce4ff; }
+    .bio-stats .stat .label { font-size: 0.8rem; color: #94a9c9; text-transform: uppercase; letter-spacing: 0.03em; }
 
     .grid {
       display: grid;
@@ -124,10 +102,8 @@
     .card::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
       background: linear-gradient(90deg, #00f0ff, #a06eff, #00f0ff);
       opacity: 0.7;
     }
@@ -148,31 +124,12 @@
       letter-spacing: -0.01em;
     }
 
-    .card h2 i {
-      font-style: normal;
-      font-size: 1.6rem;
-      filter: drop-shadow(0 0 8px #00b8ff);
-    }
+    .card h2 i { font-style: normal; font-size: 1.6rem; filter: drop-shadow(0 0 8px #00b8ff); }
 
-    .schedule-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-
-    .schedule-table tr {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .schedule-table tr:last-child {
-      border-bottom: none;
-    }
-
-    .schedule-table td {
-      padding: 0.8rem 0.2rem 0.8rem 0;
-      vertical-align: top;
-    }
-
+    .schedule-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .schedule-table tr { border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    .schedule-table tr:last-child { border-bottom: none; }
+    .schedule-table td { padding: 0.8rem 0.2rem 0.8rem 0; vertical-align: top; }
     .schedule-table td:first-child {
       font-weight: 600;
       color: #aad0ff;
@@ -193,25 +150,11 @@
       white-space: nowrap;
     }
 
-    .badge.orange {
-      background: rgba(255, 150, 0, 0.15);
-      border-color: #ffa500;
-      color: #ffbe5c;
-    }
+    .badge.orange { background: rgba(255, 150, 0, 0.15); border-color: #ffa500; color: #ffbe5c; }
+    .badge.green { background: rgba(0, 255, 150, 0.1); border-color: #00d68f; color: #5fffc2; }
+    .badge.purple { background: rgba(170, 0, 255, 0.12); border-color: #b180ff; color: #d4a6ff; }
 
-    .badge.green {
-      background: rgba(0, 255, 150, 0.1);
-      border-color: #00d68f;
-      color: #5fffc2;
-    }
-
-    .macro-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.8rem;
-      margin: 1rem 0 0.5rem;
-    }
-
+    .macro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin: 1rem 0 0.5rem; }
     .macro-item {
       background: rgba(0, 30, 50, 0.6);
       border-radius: 16px;
@@ -220,29 +163,10 @@
       border: 1px solid rgba(0, 180, 255, 0.3);
       backdrop-filter: blur(5px);
     }
+    .macro-item .number { font-size: 1.6rem; font-weight: 700; color: #8ce4ff; line-height: 1.2; text-shadow: 0 0 15px #0088ff; }
+    .macro-item .unit { font-size: 0.7rem; color: #7f96b0; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    .macro-item .number {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #8ce4ff;
-      line-height: 1.2;
-      text-shadow: 0 0 15px #0088ff;
-    }
-
-    .macro-item .unit {
-      font-size: 0.7rem;
-      color: #7f96b0;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .food-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
-
+    .food-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
     .food-tag {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(0, 255, 255, 0.2);
@@ -252,20 +176,9 @@
       color: #bdd6f0;
       transition: 0.1s;
     }
+    .food-tag strong { color: #fff; font-weight: 600; margin-right: 0.2rem; }
 
-    .food-tag strong {
-      color: #fff;
-      font-weight: 600;
-      margin-right: 0.2rem;
-    }
-
-    .supp-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
+    .supp-stack { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 0.5rem; }
     .supp-item {
       display: flex;
       align-items: center;
@@ -276,33 +189,12 @@
       border-radius: 0 16px 16px 0;
       font-size: 0.9rem;
     }
+    .supp-item .supp-icon { font-size: 1.6rem; filter: drop-shadow(0 0 8px cyan); }
+    .supp-item .supp-text { flex: 1; }
+    .supp-item .supp-text .name { font-weight: 600; color: #d0f0ff; display: block; margin-bottom: 0.15rem; }
+    .supp-item .supp-text .desc { color: #9bb1cc; font-size: 0.8rem; }
 
-    .supp-item .supp-icon {
-      font-size: 1.6rem;
-      filter: drop-shadow(0 0 8px cyan);
-    }
-
-    .supp-item .supp-text {
-      flex: 1;
-    }
-
-    .supp-item .supp-text .name {
-      font-weight: 600;
-      color: #d0f0ff;
-      display: block;
-      margin-bottom: 0.15rem;
-    }
-
-    .supp-item .supp-text .desc {
-      color: #9bb1cc;
-      font-size: 0.8rem;
-    }
-
-    .highlight {
-      color: #a0f0ff;
-      font-weight: 700;
-      text-shadow: 0 0 8px #00a6ff;
-    }
+    .highlight { color: #a0f0ff; font-weight: 700; text-shadow: 0 0 8px #00a6ff; }
 
     .note {
       font-size: 0.8rem;
@@ -314,11 +206,7 @@
       gap: 0.5rem;
       align-items: flex-start;
     }
-
-    .note .icon {
-      font-size: 1.2rem;
-      filter: drop-shadow(0 0 5px cyan);
-    }
+    .note .icon { font-size: 1.2rem; filter: drop-shadow(0 0 5px cyan); }
 
     .pulse-line {
       height: 2px;
@@ -334,7 +222,6 @@
       100% { opacity: 0.2; }
     }
 
-    /* 打卡功能样式 */
     .check-item {
       display: flex;
       align-items: center;
@@ -347,8 +234,7 @@
     }
     .check-item input[type="checkbox"] {
       appearance: none;
-      width: 1.1rem;
-      height: 1.1rem;
+      width: 1.1rem; height: 1.1rem;
       border: 2px solid #00e0ff;
       border-radius: 4px;
       background: rgba(0, 255, 255, 0.05);
@@ -367,8 +253,7 @@
       color: #0b0f17;
       font-size: 0.9rem;
       font-weight: 700;
-      top: -2px;
-      left: 2px;
+      top: -2px; left: 2px;
     }
     .check-item input[type="checkbox"]:checked + span {
       color: #6b809c;
@@ -385,10 +270,7 @@
       margin-top: 1rem;
       transition: 0.2s;
     }
-    .reset-btn:hover {
-      background: rgba(0, 255, 255, 0.1);
-      border-color: #00e0ff;
-    }
+    .reset-btn:hover { background: rgba(0, 255, 255, 0.1); border-color: #00e0ff; }
 
     @media (max-width: 600px) {
       body { padding: 0.8rem; }
@@ -404,31 +286,22 @@
   <div class="dashboard">
     <div class="header">
       <div class="title-section">
-        <h1>⚡ 增肌核心协议 // 19Y</h1>
+        <h1>⚡ 三分化增肌协议 // 19Y</h1>
         <div class="sub">
+          <span>胸+三头 / 背+二头 / 肩+腹</span>
           <span>足球双训 · 健身房补强</span>
-          <span>热量盈余 + 渐进超负荷</span>
         </div>
       </div>
       <div class="bio-stats">
-        <div class="stat">
-          <span class="value">181</span>
-          <span class="label">cm</span>
-        </div>
-        <div class="stat">
-          <span class="value">68.5</span>
-          <span class="label">kg</span>
-        </div>
-        <div class="stat">
-          <span class="value">20.9</span>
-          <span class="label">BMI</span>
-        </div>
+        <div class="stat"><span class="value">181</span><span class="label">cm</span></div>
+        <div class="stat"><span class="value">68.5</span><span class="label">kg</span></div>
+        <div class="stat"><span class="value">20.9</span><span class="label">BMI</span></div>
       </div>
     </div>
 
     <div class="grid">
       <div class="card">
-        <h2><i>📅</i> 每周训练协议</h2>
+        <h2><i>📅</i> 每周训练协议 · 三分化</h2>
         <table class="schedule-table">
           <tr>
             <td>周一</td>
@@ -442,10 +315,12 @@
           <tr>
             <td>周二</td>
             <td>
-              <span class="badge">推+肩</span>
+              <span class="badge purple">胸 + 三头 + 腹</span>
               <label class="check-item"><input type="checkbox" data-day="tue"> <span>夹胸器 4×10-12</span></label>
-              <label class="check-item"><input type="checkbox" data-day="tue"> <span>推肩器 4×10-12</span></label>
-              <label class="check-item"><input type="checkbox" data-day="tue"> <span>俯卧撑 3×力竭前2次</span></label>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>俯卧撑 4×力竭前2次</span></label>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>窄距推肩器/窄推 3×12（三头）</span></label>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>三头臂屈伸 3×12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>卷腹 3×15-20</span></label>
               <label class="check-item"><input type="checkbox" data-day="tue"> <span>平板支撑 3×45-60s</span></label>
             </td>
           </tr>
@@ -461,11 +336,13 @@
           <tr>
             <td>周四</td>
             <td>
-              <span class="badge">拉+二头</span>
+              <span class="badge purple">背 + 二头 + 腹</span>
               <label class="check-item"><input type="checkbox" data-day="thu"> <span>高位下拉 4×10-12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>窄距对握下拉 3×12</span></label>
               <label class="check-item"><input type="checkbox" data-day="thu"> <span>二头弯举器 4×10-12</span></label>
-              <label class="check-item"><input type="checkbox" data-day="thu"> <span>反向飞鸟 3×15</span></label>
-              <label class="check-item"><input type="checkbox" data-day="thu"> <span>卷腹/悬垂举腿 3×15</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>锤式弯举 3×12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>悬垂举腿/卷腹 3×15</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>平板支撑 3×45-60s</span></label>
             </td>
           </tr>
           <tr>
@@ -478,11 +355,12 @@
           <tr>
             <td>周六</td>
             <td>
-              <span class="badge">全身补强</span>
-              <label class="check-item"><input type="checkbox" data-day="sat"> <span>推肩 3×12</span></label>
-              <label class="check-item"><input type="checkbox" data-day="sat"> <span>高位下拉 3×12</span></label>
-              <label class="check-item"><input type="checkbox" data-day="sat"> <span>夹胸 3×15</span></label>
-              <label class="check-item"><input type="checkbox" data-day="sat"> <span>二头 3×15</span></label>
+              <span class="badge purple">肩 + 中束 + 腹</span>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>推肩器 4×10-12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>哑铃侧平举 4×12-15（中束）</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>绳索/单臂侧平举 3×15（中束）</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>反向飞鸟 3×15（后束）</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>卷腹 3×15-20</span></label>
               <label class="check-item"><input type="checkbox" data-day="sat"> <span>平板支撑 3×60s</span></label>
             </td>
           </tr>
@@ -497,7 +375,7 @@
         <button class="reset-btn" id="resetBtn">重置本周打卡</button>
         <div class="note">
           <span class="icon">⚙️</span>
-          <span>加重原则：12次有余力则加重，不足8次则减重。组间休息60-90秒。</span>
+          <span>主项4组10-12次，辅助3组12-15次。练完还能再练20分钟=强度小；第二天缓不过来=强度大。组间休息：主项60-90秒，辅助45-60秒，腹30-45秒。</span>
         </div>
       </div>
 
@@ -618,51 +496,4 @@
         </div>
         <div style="background: rgba(0, 30, 50, 0.5); border-radius: 20px; padding: 1rem; border: 1px solid rgba(0, 200, 255, 0.2);">
           <div style="font-weight: 700; color: #8ce4ff; margin-bottom: 0.5rem;">🍽️ 晚餐</div>
-          <div style="font-size: 0.9rem; color: #cbd5e8;">米饭2碗 + 两个荤菜 + 蔬菜</div>
-        </div>
-        <div style="background: rgba(0, 30, 50, 0.5); border-radius: 20px; padding: 1rem; border: 1px solid rgba(0, 200, 255, 0.2);">
-          <div style="font-weight: 700; color: #8ce4ff; margin-bottom: 0.5rem;">🌙 睡前</div>
-          <div style="font-size: 0.9rem; color: #cbd5e8;">酸奶200g + 坚果30g</div>
-        </div>
-      </div>
-      <div class="note" style="margin-top: 1.2rem;">
-        <span class="icon">⚽</span>
-        <span>足球日：训练前加餐必须吃，训练后1h内加一顿。当天总主食比健身房日再多半碗至一碗。</span>
-      </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 3rem; padding: 1.5rem 0 0.5rem; border-top: 1px solid rgba(0, 255, 255, 0.1); color: #49607b; font-size: 0.8rem; letter-spacing: 1px;">
-      <span style="color: #6b8cff;">⚡</span> 科技增肌 · 为19岁足球生定制 · 基于食堂与基础健身房 <span style="color: #6b8cff;">⚡</span>
-    </div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
-
-      checkboxes.forEach((box, index) => {
-        const saved = localStorage.getItem('fitness_check_' + index);
-        if (saved === 'true') {
-          box.checked = true;
-        }
-
-        box.addEventListener('change', function () {
-          localStorage.setItem('fitness_check_' + index, this.checked);
-        });
-      });
-
-      const resetBtn = document.getElementById('resetBtn');
-      if (resetBtn) {
-        resetBtn.addEventListener('click', function () {
-          if (confirm('确定要清空所有打卡记录吗？')) {
-            checkboxes.forEach((box, index) => {
-              box.checked = false;
-              localStorage.removeItem('fitness_check_' + index);
-            });
-          }
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+          <div style="font-size: 0.9rem; color: #cbd5e8;">米饭
