@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>科技增肌 · 三分化定制计划</title>
+  <title>科技增肌 · 三分化最终版</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -208,6 +208,27 @@
     }
     .note .icon { font-size: 1.2rem; filter: drop-shadow(0 0 5px cyan); }
 
+    .warn-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    .warn-list li {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      font-size: 0.85rem;
+      color: #b8c9e0;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .warn-list li:last-child { border-bottom: none; }
+    .warn-list .w-icon {
+      color: #ffbe5c;
+      font-size: 1rem;
+      filter: drop-shadow(0 0 4px rgba(255, 180, 0, 0.5));
+      flex-shrink: 0;
+    }
+
     .pulse-line {
       height: 2px;
       background: linear-gradient(90deg, transparent, #00f0ff, #b180ff, transparent);
@@ -286,10 +307,10 @@
   <div class="dashboard">
     <div class="header">
       <div class="title-section">
-        <h1>⚡ 三分化增肌协议 // 19Y</h1>
+        <h1>⚡ 三分化增肌协议 · 最终版</h1>
         <div class="sub">
-          <span>胸+三头 / 背+二头 / 肩+腹</span>
-          <span>足球双训 · 健身房补强</span>
+          <span>胸+三头 / 背+二头 / 肩+中束</span>
+          <span>每次带腹 · 器材全匹配</span>
         </div>
       </div>
       <div class="bio-stats">
@@ -316,10 +337,11 @@
             <td>周二</td>
             <td>
               <span class="badge purple">胸 + 三头 + 腹</span>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>哑铃/杠铃卧推 4×10-12</span></label>
               <label class="check-item"><input type="checkbox" data-day="tue"> <span>夹胸器 4×10-12</span></label>
-              <label class="check-item"><input type="checkbox" data-day="tue"> <span>俯卧撑 4×力竭前2次</span></label>
-              <label class="check-item"><input type="checkbox" data-day="tue"> <span>窄距推肩器/窄推 3×12（三头）</span></label>
-              <label class="check-item"><input type="checkbox" data-day="tue"> <span>三头臂屈伸 3×12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>哑铃飞鸟 3×12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>窄距卧推 3×12（三头）</span></label>
+              <label class="check-item"><input type="checkbox" data-day="tue"> <span>哑铃颈后臂屈伸 3×12（三头）</span></label>
               <label class="check-item"><input type="checkbox" data-day="tue"> <span>卷腹 3×15-20</span></label>
               <label class="check-item"><input type="checkbox" data-day="tue"> <span>平板支撑 3×45-60s</span></label>
             </td>
@@ -337,10 +359,11 @@
             <td>周四</td>
             <td>
               <span class="badge purple">背 + 二头 + 腹</span>
-              <label class="check-item"><input type="checkbox" data-day="thu"> <span>高位下拉 4×10-12</span></label>
-              <label class="check-item"><input type="checkbox" data-day="thu"> <span>窄距对握下拉 3×12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>高位下拉（宽握）4×10-12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>单臂哑铃划船 4×10-12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>高位下拉（窄握）3×12</span></label>
               <label class="check-item"><input type="checkbox" data-day="thu"> <span>二头弯举器 4×10-12</span></label>
-              <label class="check-item"><input type="checkbox" data-day="thu"> <span>锤式弯举 3×12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="thu"> <span>哑铃锤式弯举 3×12</span></label>
               <label class="check-item"><input type="checkbox" data-day="thu"> <span>悬垂举腿/卷腹 3×15</span></label>
               <label class="check-item"><input type="checkbox" data-day="thu"> <span>平板支撑 3×45-60s</span></label>
             </td>
@@ -356,10 +379,10 @@
             <td>周六</td>
             <td>
               <span class="badge purple">肩 + 中束 + 腹</span>
-              <label class="check-item"><input type="checkbox" data-day="sat"> <span>推肩器 4×10-12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>推肩器 / 哑铃坐姿推举 4×10-12</span></label>
               <label class="check-item"><input type="checkbox" data-day="sat"> <span>哑铃侧平举 4×12-15（中束）</span></label>
-              <label class="check-item"><input type="checkbox" data-day="sat"> <span>绳索/单臂侧平举 3×15（中束）</span></label>
-              <label class="check-item"><input type="checkbox" data-day="sat"> <span>反向飞鸟 3×15（后束）</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>哑铃前平举 3×12</span></label>
+              <label class="check-item"><input type="checkbox" data-day="sat"> <span>俯身哑铃反向飞鸟 3×15（后束）</span></label>
               <label class="check-item"><input type="checkbox" data-day="sat"> <span>卷腹 3×15-20</span></label>
               <label class="check-item"><input type="checkbox" data-day="sat"> <span>平板支撑 3×60s</span></label>
             </td>
@@ -416,6 +439,27 @@
           <span class="icon">📌</span>
           <span>食堂肉少？每餐两个荤菜 + 宿舍牛奶/鸡蛋补足。蛋白质分4-5餐，每餐25-35g。</span>
         </div>
+      </div>
+    </div>
+
+    <!-- 注意事项卡片 -->
+    <div class="grid">
+      <div class="card" style="grid-column: 1 / -1;">
+        <h2><i>⚠️</i> 核心注意事项 · 必读</h2>
+        <ul class="warn-list">
+          <li><span class="w-icon">1</span> <strong>足球日优先</strong>：周一、周三足球训练日不再额外加练。如果当天足球强度极大，训练后只做拉伸，不加健身房项目。</li>
+          <li><span class="w-icon">2</span> <strong>训练前必须吃</strong>：足球或健身房训练前 1.5-2 小时吃香蕉+面包+花生酱，空腹上场容易没劲还伤胃。</li>
+          <li><span class="w-icon">3</span> <strong>训练后 1 小时内加餐</strong>：牛奶+鸡蛋，或直接吃正餐。这是恢复窗口，别拖。</li>
+          <li><span class="w-icon">4</span> <strong>强度判断标准</strong>：主项最后 1-2 次吃力但动作不变形。练完还能再练 20 分钟 = 强度小；第二天完全缓不过来 = 强度大。</li>
+          <li><span class="w-icon">5</span> <strong>每周称重一次</strong>：固定早上空腹称。目标每周涨 0.25-0.5kg。连续 2 周不涨，每餐加半碗饭或一勺花生酱。</li>
+          <li><span class="w-icon">6</span> <strong>睡眠 ≥ 7.5 小时</strong>：你训练量大，睡不够很难增肌。尽量 23 点前入睡。</li>
+          <li><span class="w-icon">7</span> <strong>饮水 ≥ 2L</strong>：吃肌酸后尤其重要，水分充足才能发挥效果，防止抽筋。</li>
+          <li><span class="w-icon">8</span> <strong>肌酸每天 4g</strong>：不挑时间，冷水冲服，每天都吃。体重可能涨 1-2kg（水分），正常现象。</li>
+          <li><span class="w-icon">9</span> <strong>蛋白粉非必需</strong>：优先靠鸡蛋、牛奶、鸡腿、酸奶吃够 130-150g 蛋白质。食堂吃不够再补一勺。</li>
+          <li><span class="w-icon">10</span> <strong>动作标准优先</strong>：宁轻勿假。弯举不甩、下拉不借力、侧平举不耸肩。动作变形就减重。</li>
+          <li><span class="w-icon">11</span> <strong>组间休息计时</strong>：主项 60-90 秒，辅助 45-60 秒，腹 30-45 秒。休息太长刺激不够，太短恢复不足。</li>
+          <li><span class="w-icon">12</span> <strong>先执行 4 周再评估</strong>：体重涨 1-2kg、力量有进步 = 方向正确。若没涨，晚餐主食再加半碗。</li>
+        </ul>
       </div>
     </div>
 
@@ -493,7 +537,4 @@
         <div style="background: rgba(0, 30, 50, 0.5); border-radius: 20px; padding: 1rem; border: 1px solid rgba(0, 200, 255, 0.2);">
           <div style="font-weight: 700; color: #8ce4ff; margin-bottom: 0.5rem;">🥤 训练后</div>
           <div style="font-size: 0.9rem; color: #cbd5e8;">牛奶250ml + 鸡蛋1个 (或直接正餐)</div>
-        </div>
-        <div style="background: rgba(0, 30, 50, 0.5); border-radius: 20px; padding: 1rem; border: 1px solid rgba(0, 200, 255, 0.2);">
-          <div style="font-weight: 700; color: #8ce4ff; margin-bottom: 0.5rem;">🍽️ 晚餐</div>
-          <div style="font-size: 0.9rem; color: #cbd5e8;">米饭
+        </div
