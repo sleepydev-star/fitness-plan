@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>科技增肌 · 19岁足球生定制计划</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0f17;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(170, 0, 255, 0.05) 0%, transparent 40%);
+      font-family: 'Inter', sans-serif;
+      color: #eef5ff;
+      padding: 1.5rem;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* 主容器 */
+    .dashboard {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* 标题区 */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    .title-section h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #a0f0ff, #6b8cff, #b180ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.25rem;
+      text-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
+    }
+
+    .title-section .sub {
+      font-size: 1rem;
+      color: #8a9bb5;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .title-section .sub span {
+      background: rgba(0, 255, 255, 0.08);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #b0e0ff;
+    }
+
+    .bio-stats {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      background: rgba(10, 20, 35, 0.7);
+      backdrop-filter: blur(4px);
+      padding: 0.8rem 1.5rem;
+      border-radius: 40px;
+      border: 1px solid rgba(0, 255, 255, 0.25);
+      box-shadow: 0 0 25px rgba(0, 150, 255, 0.2);
+    }
+
+    .bio-stats .stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+
+    .bio-stats .stat .value {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #8ce4ff;
+    }
+
+    .bio-stats .stat .label {
+      font-size: 0.8rem;
+      color: #94a9c9;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* 网格系统 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: rgba(15, 25, 40, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 200, 255, 0.2);
+      border-radius: 28px;
+      padding: 1.5rem 1.5rem 1.8rem;
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 255, 255, 0.05) inset;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #00f0ff, #a06eff, #00f0ff);
+      opacity: 0.7;
+    }
+
+    .card:hover {
+      border-color: rgba(0, 255, 255, 0.4);
+      box-shadow: 0 18px 40px -10px #002a4a, 0 0 0 1px rgba(0, 255, 255, 0.2) inset;
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #d0eeff;
+      letter-spacing: -0.01em;
+    }
+
+    .card h2 i {
+      font-style: normal;
+      font-size: 1.6rem;
+      filter: drop-shadow(0 0 8px #00b8ff);
+    }
+
+    /* 训练表格 */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .schedule-table tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .schedule-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .schedule-table td {
+      padding: 0.8rem 0.2rem 0.8rem 0;
+      vertical-align: top;
+    }
+
+    .schedule-table td:first-child {
+      font-weight: 600;
+      color: #aad0ff;
+      width: 85px;
+      text-shadow: 0 0 5px rgba(0, 180, 255, 0.5);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+      background: rgba(0, 255, 255, 0.15);
+      border: 1px solid rgba(0, 255, 255, 0.5);
+      color: #b0f0ff;
+      margin-right: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .badge.orange {
+      background: rgba(255, 150, 0, 0.15);
+      border-color: #ffa500;
+      color: #ffbe5c;
+    }
+
+    .badge.green {
+      background: rgba(0, 255, 150, 0.1);
+      border-color: #00d68f;
+      color: #5fffc2;
+    }
+
+    /* 动作列表 */
+    .exercise-list {
+      list-style: none;
+      margin-top: 0.25rem;
+    }
+
+    .exercise-list li {
+      font-size: 0.9rem;
+      padding: 0.25rem 0 0.25rem 1.2rem;
+      position: relative;
+      color: #cbd5e8;
+    }
+
+    .exercise-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: #00e0ff;
+      text-shadow: 0 0 6px #00e0ff;
+    }
+
+    /* 数据网格 */
+    .macro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .macro-item {
+      background: rgba(0, 30, 50, 0.6);
+      border-radius: 16px;
+      padding: 0.8rem 0.5rem;
+      text-align: center;
+      border: 1px solid rgba(0, 180, 255, 0.3);
+      backdrop-filter: blur(5px);
+    }
+
+    .macro-item .number {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #8ce4ff;
+      line-height: 1.2;
+      text-shadow: 0 0 15px #0088ff;
+    }
+
+    .macro-item .unit {
+      font-size: 0.7rem;
+      color: #7f96b0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .food-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .food-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 40px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.8rem;
+      color: #bdd6f0;
+      transition: 0.1s;
+    }
+
+    .food-tag strong {
+      color: #fff;
+      font-weight: 600;
+      margin-right: 0.2rem;
+    }
+
+    /* 补剂区块 */
+    .supp-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .supp-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: rgba(0, 255, 255, 0.03);
+      border-left: 4px solid #00e0ff;
+      padding: 0.7rem 1rem;
+      border-radius: 0 16px 16px 0;
+      font-size: 0.9rem;
+    }
+
+    .supp-item .supp-icon {
+      font-size: 1.6rem;
+      filter: drop-shadow(0 0 8px cyan);
+    }
+
+    .supp-item .supp-text {
+      flex: 1;
+    }
+
+    .supp-item .supp-text .name {
+      font-weight: 600;
+      color: #d0f0ff;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .supp-item .supp-text .desc {
+      color: #9bb1cc;
+      font-size: 0.8rem;
+    }
+
+    /* 强调数字 */
+    .highlight {
+      color: #a0f0ff;
+      font-weight: 700;
+      text-shadow: 0 0 8px #00a6ff;
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: #7d93b0;
+      margin-top: 1rem;
+      border-top: 1px dashed rgba(0, 255, 255, 0.2);
+      padding-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+
+    .note .icon {
+      font-size: 1.2rem;
+      filter: drop-shadow(0 0 5px cyan);
+    }
+
+    /* 进度条效果 */
+    .pulse-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00f0ff, #b180ff, transparent);
+      margin: 1.8rem 0 1rem;
+      animation: pulse 4s infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.2; }
+      50% { opacity: 0.8; }
+      100% { opacity: 0.2; }
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body { padding: 0.8rem; }
+      .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .title-section h1 { font-size: 1.8rem; }
+      .bio-stats { width: 100%; justify-content: space-around; }
+      .macro-grid { grid-template-columns: 1fr; }
+      .card { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- 头部 -->
+    <div class="header">
+      <div class="title-section">
+        <h1>⚡ 增肌核心协议 // 19Y</h1>
+        <div class="sub">
+          <span>足球双训 · 健身房补强</span>
+          <span>热量盈余 + 渐进超负荷</span>
+        </div>
+      </div>
+      <div class="bio-stats">
+        <div class="stat">
+          <span class="value">181</span>
+          <span class="label">cm</span>
+        </div>
+        <div class="stat">
+          <span class="value">68.5</span>
+          <span class="label">kg</span>
+        </div>
+        <div class="stat">
+          <span class="value">20.9</span>
+          <span class="label">BMI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第一行：训练计划 + 饮食目标 -->
+    <div class="grid">
+      <!-- 训练安排卡片 -->
+      <div class="card">
+        <h2><i>📅</i> 每周训练协议</h2>
+        <table class="schedule-table">
+          <tr>
+            <td>周一</td>
+            <td>
+              <span class="badge orange">足球 2h</span>
+              <ul class="exercise-list">
+                <li>训练前 1.5-2h：香蕉 + 面包 + 花生酱</li>
+                <li>训练后 1h 内加餐（牛奶/鸡蛋/正餐）</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>周二</td>
+            <td>
+              <span class="badge">推+肩</span>
+              <ul class="exercise-list">
+                <li>夹胸器 4×10-12</li>
+                <li>推肩器 4×10-12</li>
+                <li>俯卧撑 3×力竭前2次</li>
+                <li>平板支撑 3×45-60s</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>周三</td>
+            <td>
+              <span class="badge orange">足球 2h</span>
+              <ul class="exercise-list">
+                <li>同周一，训练前后碳水加量</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>周四</td>
+            <td>
+              <span class="badge">拉+二头</span>
+              <ul class="exercise-list">
+                <li>高位下拉 4×10-12</li>
+                <li>二头弯举器 4×10-12</li>
+                <li>反向飞鸟 3×15</li>
+                <li>卷腹/悬垂举腿 3×15</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>周五</td>
+            <td>
+              <span class="badge green">主动恢复</span>
+              <ul class="exercise-list">
+                <li>慢跑 20-30min（能说话强度）</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>周六</td>
+            <td>
+              <span class="badge">全身补强</span>
+              <ul class="exercise-list">
+                <li>推肩 3×12 / 高位下拉 3×12</li>
+                <li>夹胸 3×15 / 二头 3×15</li>
+                <li>平板支撑 3×60s</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>周日</td>
+            <td><span class="badge green">完全休息</span> 睡够8h</td>
+          </tr>
+        </table>
+        <div class="note">
+          <span class="icon">⚙️</span>
+          <span>加重原则：12次有余力则加重，不足8次则减重。组间休息60-90秒。</span>
+        </div>
+      </div>
+
+      <!-- 饮食宏量卡片 -->
+      <div class="card">
+        <h2><i>🥩</i> 每日燃料目标</h2>
+        <div class="macro-grid">
+          <div class="macro-item">
+            <div class="number">3200+</div>
+            <div class="unit">kcal (足球日)</div>
+          </div>
+          <div class="macro-item">
+            <div class="number">140</div>
+            <div class="unit">g 蛋白质</div>
+          </div>
+          <div class="macro-item">
+            <div class="number">450</div>
+            <div class="unit">g 碳水</div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin: 0.8rem 0 0.2rem; font-size: 0.85rem; color: #9bb1cc;">
+          <span>🔥 健身房日 ~3000-3200</span>
+          <span>💤 休息日 ~2800-3000</span>
+        </div>
+        <div class="pulse-line"></div>
+        <h2 style="font-size: 1.2rem; margin-bottom: 0.8rem;"><i>🍚</i> 食堂执行清单</h2>
+        <div class="food-list">
+          <span class="food-tag"><strong>主食</strong> 米饭2碗/餐</span>
+          <span class="food-tag"><strong>荤菜</strong> 每餐2份</span>
+          <span class="food-tag"><strong>鸡蛋</strong> 2-3个/天</span>
+          <span class="food-tag"><strong>牛奶</strong> 500ml</span>
+          <span class="food-tag"><strong>酸奶</strong> 200g</span>
+          <span class="food-tag"><strong>香蕉</strong> 2-3根</span>
+          <span class="food-tag"><strong>花生酱</strong> 1-2勺</span>
+          <span class="food-tag"><strong>燕麦</strong> 80g</span>
+          <span class="food-tag"><strong>坚果</strong> 30g</span>
+        </div>
+        <div class="note">
+          <span class="icon">📌</span>
+          <span>食堂肉少？每餐两个荤菜 + 宿舍牛奶/鸡蛋补足。蛋白质分4-5餐，每餐25-35g。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第二行：补剂 + 关键原则 -->
+    <div class="grid">
+      <!-- 补剂卡片 -->
+      <div class="card">
+        <h2><i>🧪</i> 补剂决策 · 肌酸优先</h2>
+        <div class="supp-stack">
+          <div class="supp-item">
+            <div class="supp-icon">⚡</div>
+            <div class="supp-text">
+              <span class="name">一水肌酸 (Creatine Mono)</span>
+              <span class="desc"><span class="highlight">每天4g</span> · 不挑时间 · 冷水冲服 · 多喝水</span>
+              <span class="desc" style="color: #b0d0ff; margin-top: 0.2rem; display: block;">→ 提升冲刺/爆发力，增肌+足球双收益。体重可能涨1-2kg（水分）。</span>
+            </div>
+          </div>
+          <div class="supp-item" style="border-left-color: #a06eff;">
+            <div class="supp-icon">🥛</div>
+            <div class="supp-text">
+              <span class="name">乳清蛋白粉 (可选)</span>
+              <span class="desc">食堂吃不够时补一勺（20-25g蛋白）。<span class="highlight">非必需</span>，优先靠鸡蛋牛奶鸡腿。</span>
+            </div>
+          </div>
+          <div class="supp-item" style="border-left-color: #ffa500;">
+            <div class="supp-icon">💊</div>
+            <div class="supp-text">
+              <span class="name">其他补剂</span>
+              <span class="desc">暂无必要。把钱花在肉蛋奶上。</span>
+            </div>
+          </div>
+        </div>
+        <div class="note" style="margin-top: 1.2rem;">
+          <span class="icon">⚠️</span>
+          <span>肾脏问题者慎用肌酸。健康年轻人每天4g安全。别买肌酸软糖/胶囊，认准一水肌酸粉。</span>
+        </div>
+      </div>
+
+      <!-- 核心原则卡片 -->
+      <div class="card">
+        <h2><i>📈</i> 执行核心指标</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="background: rgba(0,255,255,0.1); border-radius: 16px; padding: 0.6rem 1rem; font-weight: 700; color: #8ce4ff; font-size: 1.5rem; min-width: 80px; text-align: center;">+0.25<br><span style="font-size:0.7rem; font-weight:400;">kg/周</span></div>
+            <div>每周固定时间称重，目标每周涨0.25-0.5kg。连续2周不涨，加半碗饭或一勺花生酱。</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="background: rgba(0,255,255,0.1); border-radius: 16px; padding: 0.6rem 1rem; font-weight: 700; color: #8ce4ff; font-size: 1.5rem; min-width: 80px; text-align: center;">7.5h+<br><span style="font-size:0.7rem; font-weight:400;">睡眠</span></div>
+            <div>训练量大，睡不够很难增肌。尽量23点前入睡。</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="background: rgba(0,255,255,0.1); border-radius: 16px; padding: 0.6rem 1rem; font-weight: 700; color: #8ce4ff; font-size: 1.5rem; min-width: 80px; text-align: center;">2L+<br><span style="font-size:0.7rem; font-weight:400;">饮水</span></div>
+            <div>尤其吃肌酸后，水分充足才能发挥效果，防止抽筋。</div>
+          </div>
+        </div>
+        <div class="note" style="margin-top: 1.4rem;">
+          <span class="icon">🎯</span>
+          <span>先执行4周。体重涨1-2kg、力量有进步 = 方向正确。若没涨，晚餐主食再加半碗。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第三行：一日餐次模板 (全宽) -->
+    <div class="card" style="grid-column: 1 / -1;">
+      <h2><i>⏱️</i> 一日餐次时间轴 · 食堂/宿舍版</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 0.5rem;">
+        <div style="background: rgba(0, 30, 50, 0.5); border-radius: 20px; padding: 1rem; border: 1px solid rgba(0, 200, 255, 0.2);">
+          <div style="font-weight: 700; color: #8ce4ff; margin-bottom: 0.5rem;">🌅 早餐</div>
+          <div style="font-size: 0.9rem; color: #cbd5e8;">燕麦80g + 牛奶300ml + 鸡蛋2个 + 香蕉1根</div>
+        </div>
+        <div style="background: rgba(0, 30, 50, 0.5); border-radius: 20px; padding: 1rem; border: 1px solid rgba(0, 200, 255, 0.2);">
+          <div style="font-weight: 700; color: #8ce4ff; margin-bottom: 0.5rem;">🍛 午餐</div>
+          <div style="font-size: 0.9rem; color: #cbd5e8;">米饭2碗 + 两个荤菜(鸡腿/牛肉/鱼) + 蔬菜</div>
+        </div>
+        <div style="background: rgba(0, 30, 50, 0.5); border-radius: 20px; padding: 1rem; border: 1px solid rgba(0, 200, 255, 0.2);">
+          <div style="font-weight: 700; color: #8ce4ff; margin-bottom: 0.5rem;">⚡ 训练前</div>
+          <div style="font-size: 0.9rem; color: #cbd5e8;">香蕉1根 + 面包2片 + 花生酱1勺</div>
+        </div>
+        <div style="background: rgba(0, 30, 50, 0.5); border-radius: 20px; padding: 1rem; border: 1px solid rgba(0, 200, 255, 0.2);">
+          <div style="font-weight: 700; color: #8ce4ff; margin-bottom: 0.5rem;">🥤 训练后</div>
+          <div style="font-size: 0.9rem; color: #cbd5e8;">牛奶250ml + 鸡蛋1个 (或直接正餐)</div>
+        </div>
+        <div style="background: rgba(0, 30, 50, 0.5); border-radius: 20px; padding: 1rem; border: 1px solid rgba(0, 200, 255, 0.2);">
+          <div style="font-weight: 700; color: #8ce4ff; margin-bottom: 0.5rem;">🍽️ 晚餐</div>
+          <div style="font-size: 0.9rem; color: #cbd5e8;">米饭2碗 + 两个荤菜 + 蔬菜</div>
+        </div>
+        <div style="background: rgba(0, 30, 50, 0.5); border-radius: 20px; padding: 1rem; border: 1px solid rgba(0, 200, 255, 0.2);">
+          <div style="font-weight: 700; color: #8ce4ff; margin-bottom: 0.5rem;">🌙 睡前</div>
+          <div style="font-size: 0.9rem; color: #cbd5e8;">酸奶200g + 坚果30g</div>
+        </div>
+      </div>
+      <div class="note" style="margin-top: 1.2rem;">
+        <span class="icon">⚽</span>
+        <span>足球日：训练前加餐必须吃，训练后1h内加一顿。当天总主食比健身房日再多半碗至一碗。</span>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div style="text-align: center; margin-top: 3rem; padding: 1.5rem 0 0.5rem; border-top: 1px solid rgba(0, 255, 255, 0.1); color: #49607b; font-size: 0.8rem; letter-spacing: 1px;">
+      <span style="color: #6b8cff;">⚡</span> 科技增肌 · 为19岁足球生定制 · 基于食堂与基础健身房 <span style="color: #6b8cff;">⚡</span>
+    </div>
+  </div>
+</body>
+</html>
